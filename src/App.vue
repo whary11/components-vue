@@ -1,17 +1,75 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <Form :formConfig="formConfig"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Form from './components/Form.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Form
+  },
+  data () {
+    return {
+      formConfig: {
+        formId: "algomas",
+        formClass: "",
+        fields: [
+          {
+            tag: "input",
+            type: "text",
+            inputClass: "form-control",
+            inputId: "form-control",
+            placeholder: "Texto libre",
+            label: {
+              className: "form-label",
+              text: "Email address"
+            },
+            help: {
+              id: "algo",
+              className: "form-text",
+              text: "Ayuda"
+            }
+          },
+          {
+            tag: "input",
+            type: "email",
+            inputClass: "form-control",
+            inputId: "form-control",
+            placeholder: "Nada acá.",
+            label: {
+              className: "form-label",
+              text: "Email address"
+            },
+            help: {
+              id: "algo",
+              className: "form-text",
+              text: "Ayuda 2"
+            }
+          },
+          {
+            tag: "select",
+            selectClass: "form-select",
+            selectId: "form-control",
+            options: [
+              {
+                name: "Uno",
+                valuue: 1
+              },
+              {
+                name: "Dos",
+                valuue: 2
+              }
+            ]
+          }
+        ]
+      }
+    }
   }
 }
 </script>
